@@ -4,7 +4,7 @@ import "./home.css";
 import { labubuData } from "./context/data";
 import ActivityFeed, { Star } from "./components/activity-feed";
 import LabubuCard from "./components/labubu";
-import gift from "./assets/gift.gif";
+import gift from "./assets/ms.png";
 import { RiTwitterXFill } from "react-icons/ri";
 import { Button } from "./components/button.components";
 
@@ -30,7 +30,7 @@ export function App() {
       "🎉 Join our community on Discord for exclusive updates!",
       "💬 Share your Labubu collection on social media with #LabubuLove!",
       "📈 Real-time rarity tracking now available!",
-      "🌍 Labubu Store now ships worldwide!",
+      "🌍 SolBubuMart now ships worldwide!",
       "🛍️ New arrivals: 'Labubu in Wonderland' series!",
       "🎊 Celebrate our 1st anniversary with special discounts!",
       "💌 Subscribe to our newsletter for exclusive offers!",
@@ -78,16 +78,16 @@ export function App() {
   return (
     <div className="store-wrapper">
       <header className="store-header">
-        <h1>Labubu Store</h1>
+        <h1>SolBubuMart</h1>
         <div className="df aic gap-15">
           <Button
-            onClick={() => window.location.reload()}
+            onClick={() => window.open("https://x.com/SolBubuMart", "_blank")}
             className="df aic gap-10"
           >
             Contact US <RiTwitterXFill />
           </Button>
 
-          <Button onClick={toggleCurrency} >
+          <Button onClick={toggleCurrency}>
             {showUSD ? "Show in SOL" : "Show in USD"}
           </Button>
         </div>
@@ -95,6 +95,16 @@ export function App() {
 
       <ActivityFeed />
 
+      <div className="labubu-grid">
+        {labubuData.map((item) => (
+          <LabubuCard
+            key={item.id}
+            data={item}
+            exchangeRate={exchangeRate}
+            showUSD={showUSD}
+          />
+        ))}
+      </div>
       <div className="mystery-box">
         <h2>🎁 Mystery Box</h2>
         <img src={gift} alt="Mystery Box" className="mystery-image" />
@@ -107,20 +117,9 @@ export function App() {
           {mysteryOpened ? "Opening..." : "Open Box"}
         </Button>
       </div>
-
-      <div className="labubu-grid">
-        {labubuData.map((item) => (
-          <LabubuCard
-            key={item.id}
-            data={item}
-            exchangeRate={exchangeRate}
-            showUSD={showUSD}
-          />
-        ))}
-      </div>
       <section className="labubu-section">
         <div className="labubu-info-block">
-          <h3>About Labubu Store</h3>
+          <h3>About SolBubuMart</h3>
           <p>
             We are a fictional yet passionate collective dedicated to spreading
             Labubu joy worldwide. Our store operates on Solana and updates
@@ -146,7 +145,7 @@ export function App() {
       </section>
 
       <footer className="store-footer">
-        <p>© 2025 Labubu Store. All rights reserved.</p>
+        <p>© 2025 SolBubuMart. All rights reserved.</p>
         <small>
           Powered by the love of collectors. SOL-powered & imagination-fueled.
         </small>

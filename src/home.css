@@ -89,6 +89,11 @@
     margin-bottom: 1.5rem;
   }
 
+  .mystery-image {
+    width: 50%;
+    object-fit: cover;
+  }
+
   .mystery-btn {
     margin: auto;
   }

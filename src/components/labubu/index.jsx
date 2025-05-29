@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "../index.scss";
 import { Button } from "../button.components";
+import { SiSolana } from "react-icons/si";
 
 const rarityColors = {
   epic: "linear-gradient(45deg, #9d50bb, #6e48aa)",
@@ -46,7 +47,15 @@ const LabubuCard = ({ data, exchangeRate, showUSD }) => {
         </div>
         <div className="card-body">
           <h3>{name}</h3>
-          <p className="price">{showUSD ? `$${priceUSD}` : `${priceSOL} ◎`}</p>
+          <p className="price">
+            {showUSD ? (
+              `$${priceUSD}`
+            ) : (
+              <span className="df aic gap-5">
+                {priceSOL} <SiSolana />
+              </span>
+            )}
+          </p>
           <p className="stock">
             {stock > 0 ? `🧸 In Stock: ${stock}` : "🚫 Sold Out"}
           </p>
